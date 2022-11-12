@@ -23,7 +23,7 @@ import AuthRouter from '#controller/AuthController.js'
 const env = (process.env.NODE_ENV || '').trim()
 const IS_PROD = env !== 'development';
 const PORT_HTTP = 15010;
-const PORT_HTTPS = 18071;
+const PORT_HTTPS = 15011;
 console.log(`Environment: ${env}`);
 
 const corsConfig = {
