@@ -1,0 +1,9 @@
+[Unit]
+Description=LCIF Chart Websote
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /var/www/lcif-chart/startup.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,10 @@
+:root {
+  --primary: #0275d8;
+  --success: #5cb85c;
+  --caution: #f0ad4e;
+  --danger: #d9534f;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +12,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.btnPane {
+  display: flex;
+}
+.btnPane.right {
+  flex-direction: row-reverse;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.3s;
+}
+.btn:hover {
+  opacity: 0.75;
+}
+
+.btn.btnCaution {
+  background: var(--caution);
+}
+.btn.btnDanger {
+  background: var(--danger);
+  color: white;
+}
+.btn.btnSuccess {
+  background: var(--success);
+  color: white;
 }

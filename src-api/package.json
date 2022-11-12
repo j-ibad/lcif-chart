@@ -1,0 +1,18 @@
+{
+  "name": "lcif-chart-back",
+  "type": "module",
+  "imports": {
+    "#config/*": {
+      "default": "./config/*"
+    },
+    "#controller/*": {
+      "default": "./controller/*"
+    },
+    "#model/*": {
+      "default": "./model/*"
+    },
+    "#util/*": {
+      "default": "./util/*"
+    }
+  }
+}

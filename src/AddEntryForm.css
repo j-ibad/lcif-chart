@@ -1,0 +1,31 @@
+.AddEntryForm .formGroup {
+  margin-bottom: 0.5em;
+
+}
+.AddEntryForm .formGroup label {
+  display: block;
+  font-size: 0.85em;
+  color: #606060;
+}
+
+.AddEntryForm input { padding: 2px 4px; }
+
+.AddEntryForm input[type=number] { 
+  text-align: center;
+  width: 3em; 
+}
+
+.AddEntryForm textarea {
+  width: 90%;
+  padding: 4px 8px;
+  min-height: 7em;
+  font-family: inherit;
+}
+
+.AddEntryForm .btnPane {
+  justify-content: center;
+}
+
+.AddEntryForm .btnPane button {
+  margin: 1em 1.5em;
+}

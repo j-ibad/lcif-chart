@@ -5,10 +5,14 @@
 /.pnp
 .pnp.js
 
+# config
+*/config
+
 # testing
 /coverage
 
 # production
+/dist
 /build
 
 # misc
