@@ -1,7 +1,6 @@
 import React, {Suspense} from 'react';
-import {BrowserRouter as Router, Routes as Switch, Route, Link, Navigate} from "react-router-dom";
+import {BrowserRouter as Router, Routes as Switch, Route, Link, Navigate, useParams} from "react-router-dom";
 
-import logo from './logo.svg';
 import './App.css';
 import Session from './util/Session';
 const SignUp = React.lazy(()=>import('@/SignUp'));
@@ -17,10 +16,10 @@ function App() {
       <main>
         <Suspense fallback={null}>
           <Switch>
+            <Route path="/home" element={<Home/>} />
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<SignUp />} />
-            <Route path="*" element={<AppSwitch />} />
+            <Route path="/:mode" element={<LandingPage />} />
+            <Route path="*" element={<PageNotFoundPage />} />
           </Switch>
         </Suspense>
       </main>
@@ -45,21 +44,27 @@ function AppSwitch(){
 
 
 function LandingPage() {
+  let {mode} = useParams();
+  console.log(`'${mode}'`)
+  let bodyElement;
+  switch(mode || ''){
+    case "":
+      bodyElement = <div>
+        <Link to="/login" className='btn'>Login</Link>
+        <Link to="/register" className='btn'>Sign Up</Link>
+      </div>;
+      break;
+    case "register": bodyElement = <SignUp />; break;
+    case "login": bodyElement = <Login />; break;
+    default:
+      return <PageNotFoundPage />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>LCIF Chart</h1>
+        {bodyElement}
       </header>
     </div>
   );

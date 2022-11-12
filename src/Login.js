@@ -1,7 +1,7 @@
 import React from "react";
 import api from "@/util/api";
 import Session from "./util/Session";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -63,7 +63,10 @@ export default class Login extends React.Component {
           </div>
         </div>
         <div>
-          <button type="submit" onClick={this.onSubmit}>Log In</button>
+          <button type="submit" className="btn" onClick={this.onSubmit}>Log In</button>
+        </div>
+        <div>
+          <p>Don't have an account? <Link className='btn' to='/register'><b>Sign Up</b></Link></p>
         </div>
       </form>
     </div>)

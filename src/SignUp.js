@@ -1,7 +1,8 @@
 import React from "react";
 import api from "@/util/api";
+import { Link } from "react-router-dom";
 
-const pwdRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/g
+const pwdRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_-]).{8,}$/g
 
 export default class SignUp extends React.Component {
   constructor(props) {
@@ -98,7 +99,10 @@ export default class SignUp extends React.Component {
           </div>
         </div>
         <div>
-          <button type="submit" onClick={this.onSubmit}>Sign Up</button>
+          <button type="submit" className="btn" onClick={this.onSubmit}>Sign Up</button>
+        </div>
+        <div>
+          <p>Already have an account? <Link className='btn' to='/login'><b>Log in</b></Link></p>
         </div>
       </form>
     </div>)
