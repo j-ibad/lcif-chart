@@ -23,7 +23,7 @@
   "scripts": {
     "prod": "node src-api/index.js",
     "build": "mkdir -p dist && rm -rf dist/* build/* && craco build && mv -f build/* dist",
-    "start": "NODE_ENV=development && npm run start-back& npm run start-front",
+    "start": "NODE_ENV=development npm run start-back& NODE_ENV=development npm run start-front",
     "start-front": "craco start",
     "start-back": "nodemon src-api/index.js"
   },

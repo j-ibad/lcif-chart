@@ -7,10 +7,12 @@
  * Filename: /index.js
  * Description: Driver file for LCIF Chart.
  */
+import fs from 'fs';
 import path from 'path';
 
 import express from 'express';
 import http from 'http';
+import https from 'https';
 import cors from 'cors';
 import cookieParser from 'cookie-parser'
 
@@ -19,7 +21,9 @@ import UserRouter from '#controller/UserController.js'
 import AuthRouter from '#controller/AuthController.js'
 
 const env = (process.env.NODE_ENV || '').trim()
+const IS_PROD = env !== 'development';
 const PORT_HTTP = 15010;
+const PORT_HTTPS = 18071;
 console.log(`Environment: ${env}`);
 
 const corsConfig = {
@@ -56,6 +60,16 @@ app.get('*', (req, res)=>{
 	res.sendFile(staticRoutes[req.url] || defaultRoute);
 });
 
+if(IS_PROD){
+	const httpsServer = https.createServer({
+		key: fs.readFileSync('/etc/letsencrypt/live/ibad.one/privkey.pem'),
+		cert: fs.readFileSync('/etc/letsencrypt/live/ibad.one/fullchain.pem')
+	}, app);
+
+	httpsServer.listen(PORT_HTTPS, '0.0.0.0', ()=>{
+		console.log(`LCIF Chart HTTPS Server running on port ${PORT_HTTPS}`);
+	});
+}
 const httpServer = http.createServer(app);
 httpServer.listen(PORT_HTTP, '0.0.0.0', ()=>{
 	console.log(`LCIF Chart HTTP Server running on port ${PORT_HTTP}`);
