@@ -25,7 +25,7 @@ function App() {
         </Suspense>
       </main>
       <footer>
-        Environment: {env}
+        {/* TODO */}
       </footer>
     </Router>
   </div>);
