@@ -21,4 +21,6 @@ CREATE TABLE IF NOT EXISTS Entry (
   comments VARCHAR (8192),
 
   PRIMARY KEY (uid, date, time)
-)
+);
+
+ALTER TABLE Entry ADD weight float;

@@ -53,11 +53,11 @@ export default class Login extends React.Component {
       </div>
       <form>
         <div>
-          <div>
+          <div className="formGroup">
             <label>Username:</label>
             <input type="text" name="username" value={this.state.username} onInput={this.handleChange} autoComplete="username" required/>
           </div>
-          <div>
+          <div className="formGroup">
             <label>Password:</label>
             <input type="password" name="password" value={this.state.password} onInput={this.handleChange} autoComplete="current-password" required/>
           </div>

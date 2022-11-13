@@ -113,32 +113,37 @@ export class EntryChart extends React.Component {
       {(this.state.loading && "Loading...") || ""}
       <div>
         <p style={{fontSize: '0.85em'}}> Showing entries between {this.state.startDate} and {this.state.endDate}</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>BP</th>
-              <th>Pulse</th>
-              <th>Glucose</th>
-              <th>Fast (H)</th>
-              <th>Comments</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.entries?.map((e, i)=>(<tr key={i} onClick={()=>{this.selectEntry(i);}}>
-              <td>{e.date || '-' }</td>
-              <td>{e.time || '-'}</td>
-              <td>{e.bp_systolic || '-'}/{e.bp_diastolic || '-'}</td>
-              <td>{e.pulse || '-'}</td>
-              <td>{e.glucose || '-'}</td>
-              <td>{e.if_hrs || '-'}</td>
-              <td style={{textAlign: 'left'}}>{e.comments || ''}</td>
-            </tr>))}
-          </tbody>
-        </table>
-        <div className="btnPane right">
-          <button type="button"onClick={()=>{this.selectEntry(-1);}} className="btn btnSuccess">Add</button>
+        <div className={styles.tableContainer}>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th title="Blood Pressure">BP</th>
+                <th>Pulse</th>
+                <th title="Weight">Wght</th>
+                <th title="Glucose">Glu</th>
+                <th>Fast (H)</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.entries?.map((e, i)=>(<tr key={i} onClick={()=>{this.selectEntry(i);}}>
+                <td>{e.date || '-' }</td>
+                <td>{e.time || '-'}</td>
+                <td>{e.bp_systolic || '-'}/{e.bp_diastolic || '-'}</td>
+                <td>{e.pulse || '-'}</td>
+                <td>{e.weight || '-'}</td>
+                <td>{e.glucose || '-'}</td>
+                <td>{e.if_hrs || '-'}</td>
+                <td style={{textAlign: 'left'}}>{e.comments || ''}</td>
+              </tr>))}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="btnPane right" style={{position: 'fixed', right: '5vw', bottom: '1em'}}>
+          <button type="button"onClick={()=>{this.selectEntry(-1);}} className="btn btnSuccess" style={{fontSize: '1em'}}>Add</button>
         </div>
       </div>
 

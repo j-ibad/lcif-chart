@@ -12,6 +12,11 @@ export function isStr(obj) {
 	return (typeof obj === 'string' || obj instanceof String);
 }
 
+// Ref: https://www.jacklmoore.com/notes/rounding-in-javascript/#:~:text=The%20most%20common%20solutions%20for,round()%20.
+export function round(fl){
+	return Number(Math.round(fl+'e2')+'e-2');
+}
+
 
 export class DateUtil {
 	static toString(date){

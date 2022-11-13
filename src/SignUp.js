@@ -1,6 +1,7 @@
 import React from "react";
 import api from "@/util/api";
 import { Link } from "react-router-dom";
+import { DateUtil } from '@/util/Helpers'
 
 const pwdRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_-]).{8,}$/g
 
@@ -13,6 +14,7 @@ export default class SignUp extends React.Component {
       confirmPassword: '',
       fname: '',
       lname: '',
+      startDate: DateUtil.now(),
       prompt: {
         msg: '',
         status: null
@@ -75,27 +77,31 @@ export default class SignUp extends React.Component {
       </div>
       <form>
         <div>
-          <div>
+          <div className="formGroup">
             <label>Username:</label>
             <input type="text" name="username" value={this.state.username} onInput={this.handleChange} autoComplete="username" required/>
           </div>
-          <div>
+          <div className="formGroup">
             <label>Password:</label>
             <input type="password" name="password" value={this.state.password} onInput={this.handleChange} autoComplete="new-password" required/>
           </div>
-          <div>
+          <div className="formGroup">
             <label>Confirm Password:</label>
             <input type="password" name="confirmPassword" value={this.state.confirmPassword} onInput={this.handleChange} autoComplete="off" required/>
           </div>
         </div>
         <div>
-          <div>
+          <div className="formGroup">
             <label>First Name:</label>
             <input type="text" name="fname" value={this.state.fname} onInput={this.handleChange} autoComplete="name" required/>
           </div>
-          <div>
+          <div className="formGroup">
             <label>Last Name:</label>
             <input type="text" name="lname" value={this.state.lname} onInput={this.handleChange} autoComplete="family-name" required/>
+          </div>
+          <div className="formGroup">
+            <label>LCIF Start Date:</label>
+            <input type="date" name="startDate" value={this.state.startDate} onInput={this.handleChange}/>
           </div>
         </div>
         <div>

@@ -45,13 +45,12 @@ function AppSwitch(){
 
 function LandingPage() {
   let {mode} = useParams();
-  console.log(`'${mode}'`)
   let bodyElement;
   switch(mode || ''){
     case "":
-      bodyElement = <div>
-        <Link to="/login" className='btn'>Login</Link>
-        <Link to="/register" className='btn'>Sign Up</Link>
+      bodyElement = <div className="LandingPageBtnPane">
+        <Link to="/login" className='btn login'>Login</Link>
+        <Link to="/register" className='btn signup'>Sign Up</Link>
       </div>;
       break;
     case "register": bodyElement = <SignUp />; break;

@@ -11,8 +11,51 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  color-scheme: dark;
+}
+
+
+.App-header .formGroup {
+  min-width: 60vmin;
+  max-width: 80vw;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 0.5em;
+}
+
+.App-header label {
+  font-size: 16px;
+  display: block;
+}
+
+.App-header input {
+  width: 100%;
+  margin-top: 0;
+  padding: 0.35em 1em;
+}
+
+.App-header p {
+  font-size: 16px;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.LandingPageBtnPane .btn {
+  display: block;
+  width: 60vmin;
+  border: 1px solid gray;
+  margin-bottom: 1em;
+  transition: background 0.5s;
+}
+
+.LandingPageBtnPane .btn.login:hover {
+  background: var(--primary);
+  opacity: 1;
+}
+
+.LandingPageBtnPane .btn.signup:hover {
+  background: var(--success);
+  opacity: 1;
 }

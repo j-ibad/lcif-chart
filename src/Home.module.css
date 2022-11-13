@@ -1,12 +1,22 @@
+.EntryChart .tableContainer {
+  width: 90vw;
+  margin: auto;
+  overflow: auto;
+}
+
 .EntryChart table {
   border: 1px solid black;
   border-collapse: collapse;
-  width: 90vw;
   margin: auto;
+  width: 100%;
 }
 
 .EntryChart td, .EntryChart th {
   border: 1px solid gray;
   text-align: center;
   padding: 2px 4px;
+}
+
+.EntryChart th {
+  overflow-x: hidden;
 }

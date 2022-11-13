@@ -17,6 +17,7 @@ export default class AddEntryForm extends React.Component {
       bp_systolic: '',
       bp_diastolic: '',
       pulse: '',
+      weight: '',
       glucose: '',
       if_hrs: '',
       comments: '',
@@ -39,7 +40,6 @@ export default class AddEntryForm extends React.Component {
   componentDidUpdate(prevProps){
     if(this.props.entry !== prevProps.entry){
       let entry = Object.assign({}, this.props.entry || this.state.defaultEntry);
-      console.log(this.props.entry);
       if(this.props.entry){
         [entry.orig_date, entry.orig_time] = [entry.date, entry.time];
       }else{
@@ -133,6 +133,10 @@ export default class AddEntryForm extends React.Component {
             <div className="formGroup">
               <label>Pulse:</label>
               <input type="number" name="pulse" min="0" step="1" value={this.state.entry.pulse} onInput={this.handleChange} required/>
+            </div>
+            <div className="formGroup">
+              <label>Weight:</label>
+              <input type="number" name="weight" min="0" step=".01" value={this.state.entry.weight} onInput={this.handleChange} required/>
             </div>
             <div className="formGroup">
               <label>Glucose:</label>

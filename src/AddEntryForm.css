@@ -12,7 +12,7 @@
 
 .AddEntryForm input[type=number] { 
   text-align: center;
-  width: 3em; 
+  width: 5em; 
 }
 
 .AddEntryForm textarea {
