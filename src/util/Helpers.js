@@ -16,7 +16,7 @@ export function isStr(obj) {
 export class DateUtil {
 	static toString(date){
 		date = new Date(date);
-		let strDate = `${date.getFullYear()}-${((date.getMonth()+1)+'').padStart(2, '0')}-${(date.getDate()+'').padStart(2, '0')}`;
+		let strDate = `${date.getUTCFullYear()}-${((date.getUTCMonth()+1)+'').padStart(2, '0')}-${(date.getUTCDate()+'').padStart(2, '0')}`;
 		return strDate;
 	}
 
@@ -26,7 +26,7 @@ export class DateUtil {
 
 	static nowTime(){
 		let now = new Date();
-		return `${(now.getHours()+'').padStart(2, '0')}:${(now.getMinutes()+'').padStart(2, '0')}`
+		return `${(now.getUTCHours()+'').padStart(2, '0')}:${(now.getUTCMinutes()+'').padStart(2, '0')}`
 	}
 
 
@@ -38,11 +38,11 @@ export class DateUtil {
 				break;
 			}
 			case 'M': {
-				let months = (date.getFullYear()-1)*12 + date.getMonth() + number;
-				date.setFullYear(months / 12, months % 12);
+				let months = (date.getUTCFullYear()-1)*12 + date.getUTCMonth() + number;
+				date.setUTCFullYear(months / 12, months % 12);
 			}
 			case 'Y': {
-				date.setFullYear(date.getFullYear() + number);
+				date.setUTCFullYear(date.getUTCFullYear() + number);
 			}
 		}
 		return (asString) ? DateUtil.toString(date) : date;
@@ -51,7 +51,7 @@ export class DateUtil {
 
 	static startOfMonth(date, asString=true){
 		if(isStr(date)){date = new Date(date);}
-		date.setDate(1);
+		date.setUTCDate(1);
 		return (asString) ? DateUtil.toString(date) : date;
 	}
 
@@ -59,7 +59,7 @@ export class DateUtil {
 	static endOfMonth(date, asString=true){
 		if(isStr(date)){date = new Date(date);}
 		date = DateUtil.addDate('M', 1, date, false);
-		date.setDate(0);
+		date.setUTCDate(0);
 		return (asString) ? DateUtil.toString(date) : date;
 	}
 }

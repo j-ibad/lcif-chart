@@ -2,7 +2,6 @@ import React, {Suspense} from 'react';
 import {BrowserRouter as Router, Routes as Switch, Route, Link, Navigate, useParams} from "react-router-dom";
 
 import './App.css';
-import Session from './util/Session';
 const SignUp = React.lazy(()=>import('@/SignUp'));
 const Login = React.lazy(()=>import('@/Login'));
 const Home = React.lazy(()=>import('@/Home'));
@@ -28,18 +27,6 @@ function App() {
       </footer>
     </Router>
   </div>);
-}
-
-
-function AppSwitch(){
-  if(!Session.getSession()){ return (<Navigate to="/login"/>)}
-
-  return (<React.Fragment>
-    <Switch>
-      <Route path="/home" element={<Home/>} />
-      <Route path="*" element={<PageNotFoundPage />} />
-    </Switch>
-  </React.Fragment>)
 }
 
 

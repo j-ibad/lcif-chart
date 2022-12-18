@@ -13,9 +13,11 @@ export default class Home extends React.Component {
   }
 
   render() {
+    if(!Session.getSession()){ return (<Navigate to="/login"/>)}
+
     return (<div>
-        <NavBar />
-        <EntryChart />
+      <NavBar />
+      <EntryChart />
     </div>)
   }
 }
